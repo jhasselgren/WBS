@@ -63,7 +63,6 @@
 				</div>
 				<div role="navigation" id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
 		          	<div class="list-group">
-			            <a class="list-group-item" href="\${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
 			            <g:link class="list-group-item" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link>
 		          	</div>
 		        </div>

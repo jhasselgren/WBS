@@ -8,7 +8,7 @@
 	    <meta name="author" content="">
 		<link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
 		
-		<title><g:layoutTitle default="Grails"/></title>
+		<title><g:meta name="app.name"/></title>
 		
 		<!-- Bootstrap core CSS -->
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.css')}" type="text/css">
@@ -41,7 +41,7 @@
 			            <span class="icon-bar"></span>
 			            <span class="icon-bar"></span>
           			</button>
-          			<a class="navbar-brand" href="#">Project name</a>
+          			<a class="navbar-brand" href="${resource(dir: '') ?: '/'}"><g:meta name="app.name"/></a>
         		</div>
         		<div class="navbar-collapse collapse">
           			<form class="navbar-form navbar-right" role="form">

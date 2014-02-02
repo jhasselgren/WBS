@@ -37,7 +37,8 @@
  		sb << ' from="${' << "${property.type.name}?.values()" << '}"'
  		sb << ' keys="${' << property.type.name << '.values()*.name()}"'
 		if (isRequired()) sb << ' required=""'
-		sb << ' value="${' << "${domainInstance}?.${property.name}?.name()" << '}"'
+		//sb << ' value="${' << "${domainInstance}?.${property.name}?.name()" << '}"'
+        sb << ' valueMessagePrefix="ENUM.'+property.type.name+'"'    
 		sb << renderNoSelection(property)
 		sb << '/>'
 		sb as String
