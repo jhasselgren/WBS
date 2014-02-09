@@ -20,6 +20,8 @@ class Issue {
 	
 	static hasMany = [comments : Comment]
 	
+	static customLayout = ["comments"]
+	
 	static belongsTo = [requirement : Requirement ]
 	
     static constraints = {

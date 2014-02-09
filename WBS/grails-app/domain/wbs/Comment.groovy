@@ -1,6 +1,7 @@
 package wbs
 
 import javax.annotation.Resource
+
 import org.springframework.context.MessageSource
 import org.springframework.web.servlet.LocaleResolver
 
@@ -41,4 +42,9 @@ class Comment {
 		
 		responses();
     }
+	
+	@Override
+	public String toString() {
+		return text;
+	}
 }

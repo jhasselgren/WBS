@@ -1,6 +1,7 @@
 <%=packageName%>
 <% import grails.persistence.Event %>
 <% import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass %>
+<% import CustomGrailsDomainClass %>
 
 
 <!DOCTYPE html>
@@ -37,18 +38,27 @@
 						<div class="col-xs-12 alert alert-info">\${flash.message}</div>
 						</g:if>
 					
-					<%  excludedProps = Event.allEvents.toList() << 'id' << 'version'
+					<%  
+						customDomainClass = new CustomGrailsDomainClass(domainClass)
+						
+						
+						excludedProps = Event.allEvents.toList() << 'id' << 'version'
 						//println(Arrays.toString(excludedProps.toArray()))
 						allowedNames = domainClass.persistentProperties*.name << 'dateCreated' << 'lastUpdated'
 						//println(Arrays.toString(allowedNames.toArray()))
 						props = domainClass.properties.findAll { allowedNames.contains(it.name) && !excludedProps.contains(it.name) }
 						//println(Arrays.toString(props.toArray()))
 						//println domainClass.getMappedBy()
+						customLayoutCollection = customDomainClass.getCustomLayout()
 						constraintsMap = domainClass.getConstrainedProperties() 
 						Collections.sort(props, comparator.constructors[0].newInstance([domainClass] as Object[]))
 						props.each { p -> %>
 								
-							<%  if (p.isEnum()) { %>
+							<%  
+							if(customLayoutCollection.contains(p.name)){
+								println('<g:render template="show_'+p.name+'" />')
+							}
+							else if (p.isEnum()) { %>
 							<g:if test="\${${propertyName}?.${p.name}}">
 								<div class="col-md-4">
 									<div class="form-group">

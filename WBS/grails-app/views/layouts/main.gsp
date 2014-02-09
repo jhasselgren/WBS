@@ -11,7 +11,7 @@
 		<title><g:meta name="app.name"/></title>
 		
 		<!-- Bootstrap core CSS -->
-		<link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.css')}" type="text/css">
+		<link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.min.css')}" type="text/css">
 		
 		<!-- Custom styles for this template -->
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'jumbotron.css')}" type="text/css">
